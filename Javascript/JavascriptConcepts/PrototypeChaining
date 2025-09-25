@@ -1,0 +1,58 @@
+/************************************************************************************************/
+/*
+
+//Prototype chaining is a mechanism in JavaScript that allows objects to inherit properties and 
+//methods from other objects using the prototype chain.
+
+
+
+
+/*How It Works?
+Every JavaScript object has an internal link to another object called its prototype.
+When a property or method is accessed on an object, JavaScript first looks for it on the object itself.
+If it’s not found, JavaScript looks up the prototype chain until it either finds the property/method or reaches null (end of the chain).
+
+/*
+
+// Parent constructor function
+function Animal(name) {
+  this.name = name;
+}
+
+// Adding a method to Animal prototype
+Animal.prototype.speak = function () {
+  return `${this.name} makes a sound.`;
+};
+
+// Child constructor function
+function Dog(name, breed) {
+  Animal.call(this, name); // Call Animal constructor
+  this.breed = breed;
+}
+
+// Inherit from Animal's prototype
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+// Adding a method to Dog prototype
+Dog.prototype.bark = function () {
+  return `${this.name} barks! Woof woof!`;
+};
+
+// Create an instance of Dog
+const myDog = new Dog("Buddy", "Golden Retriever");
+
+console.log(myDog.name); // Buddy (Own property)
+console.log(myDog.breed); // Golden Retriever (Own property)
+console.log(myDog.speak()); // Buddy makes a sound. (Inherited from Animal)
+console.log(myDog.bark()); // Buddy barks! Woof woof! (Own method)
+
+console.log(myDog.__proto__ === Dog.prototype); // true
+console.log(Dog.prototype.__proto__ === Animal.prototype); // true
+console.log(Animal.prototype.__proto__ === Object.prototype); // true
+console.log(Object.prototype.__proto__); // null (End of prototype chain)
+
+
+//c haining - myDog → Dog.prototype → Animal.prototype → Object.prototype → null
+
+*/

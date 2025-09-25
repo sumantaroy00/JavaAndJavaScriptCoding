@@ -1,0 +1,145 @@
+
+
+
+
+/*
+
+Generators in JavaScript
+Generators in JavaScript are special functions that allow you to pause and resume execution using the yield keyword.
+ They are useful for handling iterators, 
+asynchronous operations, and infinite sequences efficiently.
+
+
+
+
+1. Syntax of Generators
+A generator function is defined using the function* syntax and uses yield to return values one at a time.
+
+javascript
+Copy
+Edit
+function* generatorFunction() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const gen = generatorFunction();
+
+console.log(gen.next()); // { value: 1, done: false }
+console.log(gen.next()); // { value: 2, done: false }
+console.log(gen.next()); // { value: 3, done: false }
+console.log(gen.next()); // { value: undefined, done: true }
+
+
+2. Types of Generators in JavaScript
+(1) Simple Generator
+Basic example that returns values one by one.
+
+javascript
+Copy
+Edit
+function* simpleGenerator() {
+  yield "Hello";
+  yield "World";
+}
+
+const gen1 = simpleGenerator();
+console.log(gen1.next().value); // Hello
+console.log(gen1.next().value); // World
+console.log(gen1.next().done);  // true (No more values)
+
+
+
+(2) Infinite Generator
+Useful for generating an infinite sequence, such as IDs or numbers.
+
+javascript
+Copy
+Edit
+function* idGenerator() {
+  let id = 1;
+  while (true) {
+    yield id++;
+  }
+}
+
+const gen2 = idGenerator();
+console.log(gen2.next().value); // 1
+console.log(gen2.next().value); // 2
+console.log(gen2.next().value); // 3
+
+
+
+(3) Generator with Parameters
+Generators can accept parameters via .next(value).
+
+javascript
+Copy
+Edit
+function* greetGenerator() {
+  const name = yield "What is your name?";
+  yield `Hello, ${name}!`;
+}
+
+const gen3 = greetGenerator();
+console.log(gen3.next().value); // What is your name?
+console.log(gen3.next("Alice").value); // Hello, Alice!
+💡 Use case: Interactive question-answer flows.
+
+(4) Delegated Generators (yield*)
+A generator can delegate execution to another generator using yield*.
+
+javascript
+Copy
+Edit
+function* numbers() {
+  yield 1;
+  yield 2;
+}
+
+function* letters() {
+  yield "A";
+  yield "B";
+}
+
+function* combined() {
+  yield* numbers();
+  yield* letters();
+}
+
+const gen4 = combined();
+console.log(gen4.next().value); // 1
+console.log(gen4.next().value); // 2
+console.log(gen4.next().value); // A
+console.log(gen4.next().value); // B
+💡 Use case: Combining multiple iterators.
+
+(5) Asynchronous Generators (async function*)
+Useful for handling asynchronous operations like API calls.
+
+javascript
+Copy
+Edit
+async function* fetchData() {
+  yield fetch("https://jsonplaceholder.typicode.com/todos/1").then(res => res.json());
+}
+
+const asyncGen = fetchData();
+asyncGen.next().then(res => console.log(res.value)); // Fetches data
+💡 Use case: Streaming API responses.
+
+Key Benefits of Generators
+✅ Lazy execution (values generated on demand).
+✅ Memory efficient (doesn't store all values at once).
+✅ Pause and resume execution (great for async operations).
+✅ Better handling of iterators compared to traditional loops.
+
+Would you like a real-world use case of generators? 🚀
+
+
+*/
+
+
+
+

@@ -1,0 +1,19 @@
+
+
+
+Throttling is a technique used to control the rate of execution of a function or process. It ensures that a function is executed at most once in a specified time interval, even if it is triggered multiple times within that period.
+
+Throttling is commonly used in web development, networking, and APIs to prevent excessive resource consumption.
+
+
+
+Key Differences
+Feature	               Throttling	                            Debouncing
+Execution	           Ensures execution at regular intervals	Executes only after a delay once the event stops
+Ignores Extra Calls?   Yes, within the interval	                Yes, until the delay is met
+Use Cases	           Scrolling, window resizing, API calls	Search input, form validation, button clicks
+
+
+
+
+Error Code - 429 -> to many requests

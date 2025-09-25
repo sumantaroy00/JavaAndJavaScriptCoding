@@ -1,0 +1,15 @@
+Summary of Hoisting Behavior
+Feature	                 Hoisted?	Initialized?         Usable before Declaration?
+var	                     ✅ Yes	   🚫 Undefined	        ⚠️ Allowed but undefined
+let	                     ✅ Yes	   ❌ No (TDZ)	      ❌ ReferenceError
+const	                 ✅ Yes	   ❌ No (TDZ)	      ❌ ReferenceError
+Function Declaration	 ✅ Yes	    ✅ Fully Hoisted	  ✅ Yes
+Function Expression	     ✅ Variable Hoisted	❌ No	❌ TypeError
+Class Declaration	     ✅ Yes	❌ No (TDZ)	❌ ReferenceError
+
+
+🔹 Best Practices to Avoid Hoisting Issues
+✅ Declare variables and functions at the beginning of their scope.
+✅ Use let and const instead of var to avoid accidental undefined values.
+✅ Use function declarations if you need to call a function before defining it.
+✅ Avoid using classes before declaration to prevent errors.

@@ -1,0 +1,18 @@
+🔍 Key Differences
+Feature	        Cookies 🍪	                 Local Storage 📦	                                   Session Storage 🕒
+Expiration   	Set manually	              Never expires	                                       Expires when tab closes
+Size Limit	    4MB	                          ~5MB	                                               ~5MB
+Data Sent to Server✅ Yes (with requests)	 ❌ No	                                          ❌ No
+Storage Type	Key-value pairs	              Key-value pairs	                                       Key-value pairs
+Use Case	   Authentication,tracking	     User preferences, caching	                           Temporary data
+
+
+
+
+Feature	         Local Storage 📦	                   Cache Storage 🗄️
+Purpose	Store    key-value data	                       Store network responses, files
+Data Type	     Strings (must stringify objects)	   Full HTTP responses (HTML, CSS, JS, images)
+Persistence	     Persistent (unless manually cleared)  Persistent but managed by the browser
+Size Limit	     ~5MB	                               Larger (varies by browser)
+Access API	     localStorage	                       caches
+Use Case	     User settings, form data	           Caching web assets for performance
