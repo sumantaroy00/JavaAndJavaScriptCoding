@@ -4,31 +4,7 @@ public class stringManupulationRepeatCharacter {
     
 
     public static void main(String[] args) {
-        
-        int a =2;
-        int b =3;
-        int c=4;
-        int d=0;
-
-
-     StringBuilder sb = new StringBuilder();
-      for(int i =0 ;i<a;i++){
-                sb.append("a");
-
-      }
-      for(int i =0 ;i<b;i++){
-        sb.append("b");
-      }
-        for(int i =0 ;i<c;i++){
-            sb.append("c");
-
-      }
-        for(int i =0 ;i<d;i++){
-            sb.append("d");
-
-        }
-        System.out.println(sb.toString());
-
+    
 
         HashMap<Character , Integer>  map = new HashMap<Character , Integer>();
 
